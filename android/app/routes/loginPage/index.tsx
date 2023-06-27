@@ -12,7 +12,7 @@ const backgroundStyle = {
   marginTop: 20,
 };
 
-export const LoginPage = () => {
+export const LoginPage = ({userLoggedIn}) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -28,8 +28,8 @@ export const LoginPage = () => {
 
   const handleFormSubmit = () => {
     if (password === confirmPassword) {
-      // Passwords match, perform further actions or submit the form
-      Alert.alert('Success', 'Passwords match!');
+      //Alert.alert('Success', 'Passwords match!');
+      userLoggedIn && userLoggedIn(true);
     } else {
       // Passwords don't match, display an error message
       Alert.alert('Error', 'Passwords do not match!');

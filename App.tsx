@@ -19,6 +19,7 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import PasswordInput from './android/app/src/components/PasswordInput';
 import {LoginPage} from './android/app/routes/loginPage';
+import {useState} from 'react';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -80,8 +81,23 @@ export const styles = StyleSheet.create({
 
 function App(): JSX.Element {
   // const isDarkMode = useColorScheme() === 'dark';
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  return <LoginPage />;
+  // Create a callback function to update the isLoggedIn state
+  const handleLogin = value => {
+    setIsLoggedIn(value);
+  };
+  return (
+    <View>
+      <LoginPage userLoggedIn={handleLogin} />
+
+      {isLoggedIn ? (
+        <Text style={{color: 'red', marginTop: '80%'}}>Logged in</Text>
+      ) : (
+        <Text>enter password</Text>
+      )}
+    </View>
+  );
 }
 
 export default App;
