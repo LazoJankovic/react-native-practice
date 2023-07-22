@@ -1,7 +1,7 @@
-import {Alert, Button, SafeAreaView, StyleSheet, TextInput} from 'react-native';
-import PasswordInput from '../../src/components/PasswordInput';
-import {styles} from '../../../../App';
 import {useState} from 'react';
+import {Alert, Button, StyleSheet, TextInput, View} from 'react-native';
+import {styles} from '../../../../App';
+import PasswordInput from '../../src/components/PasswordInput';
 
 const backgroundStyle = {
   backgroundColor: 'gray',
@@ -39,7 +39,7 @@ export const LoginPage = ({userLoggedIn}) => {
   const [isMatching, setIsMatching] = useState(true);
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <View style={backgroundStyle}>
       <TextInput
         placeholder="Username"
         style={[styles.input, {marginBottom: 15}]}
@@ -63,7 +63,7 @@ export const LoginPage = ({userLoggedIn}) => {
       />
 
       <Button title="Submit" onPress={handleFormSubmit} style={{margin: 10}} />
-    </SafeAreaView>
+    </View>
   );
 };
 

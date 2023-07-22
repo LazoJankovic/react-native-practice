@@ -20,6 +20,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import PasswordInput from './android/app/src/components/PasswordInput';
 import {LoginPage} from './android/app/routes/loginPage';
 import {useState} from 'react';
+import MainPage from './android/app/routes/mainPage';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -51,34 +52,6 @@ function Section({children, title}: SectionProps): JSX.Element {
   );
 }
 
-export const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  input: {
-    height: 40,
-    width: 200,
-    borderWidth: 1,
-    borderColor: 'black',
-    borderStyle: 'solid',
-    padding: 5,
-    backgroundColor: 'cyan',
-  },
-});
-
 function App(): JSX.Element {
   // const isDarkMode = useColorScheme() === 'dark';
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -88,16 +61,18 @@ function App(): JSX.Element {
     setIsLoggedIn(value);
   };
   return (
-    <View>
-      <LoginPage userLoggedIn={handleLogin} />
+    <View style={styles.mainView}>
+      {/* <LoginPage userLoggedIn={handleLogin} />*/}
 
-      {isLoggedIn ? (
-        <Text style={{color: 'red', marginTop: '80%'}}>Logged in</Text>
-      ) : (
-        <Text>enter password</Text>
-      )}
+      {true ? <MainPage /> : <LoginPage userLoggedIn={handleLogin} />}
     </View>
   );
 }
 
 export default App;
+
+const styles = StyleSheet.create({
+  mainView: {
+    height: '100%',
+  },
+});
