@@ -7,7 +7,6 @@ export default () => {
   const [isSidebarOpened, setIsSidebarOpened] = useState(false);
 
   const handleSidebarToggle = newValue => {
-    console.log('getting it from header', newValue);
     setIsSidebarOpened(newValue);
   };
   return (
