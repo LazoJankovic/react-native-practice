@@ -10,7 +10,6 @@ export default () => {
     setIsSidebarOpened(newValue);
   };
   return (
-    // <View style={{height: '100'}}> fookin breaks the app
     <KeyboardAvoidingView style={styles.mainPageContainer}>
       <Header toggleSidebar={handleSidebarToggle} />
       <Sidebar sidebarOpened={isSidebarOpened} />
